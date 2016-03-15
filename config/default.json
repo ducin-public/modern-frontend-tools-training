@@ -3,6 +3,6 @@
   "fullname": "default settings version",
   "title": "my application",
   "api": "http://api-url/",
-  "consoleLog": true,
+  "styles": "big",
   "debug": false
 }

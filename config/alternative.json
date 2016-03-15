@@ -3,6 +3,6 @@
   "fullname": "alternative settings version",
   "title": "alternative application",
   "api": "http://alternative-url/",
-  "consoleLog": true,
+  "styles": "red",
   "debug": false
 }

@@ -9,16 +9,20 @@ module.exports = function (grunt) {
                 force: true
             }
         },
-        copy: {
-            css: {
-                src: '<%= cfg.paths.source %>/jumbotron.css',
-                dest: '<%= cfg.paths.output %>/jumbotron.css'
-            }
-        },
         concat: {
             polyfills: {
                 src: '<%= cfg.paths.source %>/array.find.js',
                 dest: '<%= cfg.paths.output %>/polyfills.js'
+            }
+        },
+        sass: {
+            output: {
+                options: {
+                    sourceMap: true
+                },
+                files: {
+                    '<%= cfg.paths.output %>/bootstrap.css': '<%= cfg.paths.source %>/styles/<%= instanceConfig.styles %>.scss'
+                }
             }
         },
         jade: {
@@ -42,9 +46,13 @@ module.exports = function (grunt) {
             }
         },
         watch: {
-            index: {
+            'jade:index': {
                 files: ['<%= cfg.paths.source %>/index.jade'],
                 tasks: ['jade']
+            },
+            'sass:output': {
+                files: ['<%= cfg.paths.source %>/styles/**/*'],
+                tasks: ['inject-config', 'sass']
             }
         }
     };
@@ -54,7 +62,7 @@ module.exports = function (grunt) {
     var appTasks = [
         'inject-config',
         'clean',
-        'copy',
+        'sass',
         'concat',
         'jade'
     ];
