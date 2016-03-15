@@ -1,0 +1,17 @@
+{
+  "name": "modern-frontend-tools-training",
+  "version": "1.0.0",
+  "description": "training code",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ducin/modern-frontend-tools-training.git"
+  },
+  "keywords": [
+    "training"
+  ],
+  "author": "Tomasz Ducin <tomasz.ducin@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/ducin/modern-frontend-tools-training/issues"
+  },
+  "homepage": "https://github.com/ducin/modern-frontend-tools-training#readme"
+}
