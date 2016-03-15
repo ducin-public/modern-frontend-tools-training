@@ -3,6 +3,12 @@
 module.exports = function (grunt) {
 
     var serveConfig = {
+        concat: {
+            polyfills: {
+                src: 'src/array.find.js',
+                dest: 'src/polyfills.js'
+            }
+        },
         connect: {
             options: {
                 port: 9000,

@@ -1,0 +1,8 @@
+{
+  "name": "alternative-name",
+  "fullname": "alternative settings version",
+  "title": "alternative application",
+  "api": "http://alternative-url/",
+  "consoleLog": true,
+  "debug": false
+}

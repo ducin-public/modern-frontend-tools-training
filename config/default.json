@@ -1,0 +1,8 @@
+{
+  "name": "default-name",
+  "fullname": "default settings version",
+  "title": "my application",
+  "api": "http://api-url/",
+  "consoleLog": true,
+  "debug": false
+}

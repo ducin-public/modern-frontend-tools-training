@@ -16,8 +16,10 @@
   "homepage": "https://github.com/ducin/modern-frontend-tools-training#readme",
   "devDependencies": {
     "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^1.0.0",
     "grunt-contrib-connect": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "load-grunt-tasks": "git+https://github.com/sindresorhus/load-grunt-tasks.git"
+    "load-grunt-tasks": "git+https://github.com/sindresorhus/load-grunt-tasks.git",
+    "lodash": "^4.6.1"
   }
 }
