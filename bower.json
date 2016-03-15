@@ -1,0 +1,19 @@
+{
+  "name": "modern-frontend-tools-training",
+  "version": "1.0.0",
+  "homepage": "https://github.com/ducin/modern-frontend-tools-training",
+  "authors": [
+    "Tomasz Ducin <tomasz.ducin@gmail.com>"
+  ],
+  "description": "training code",
+  "keywords": [
+    "training"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
