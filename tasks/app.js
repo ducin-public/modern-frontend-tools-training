@@ -4,21 +4,21 @@ module.exports = function (grunt) {
 
     var appConfig = {
         clean: {
-            output: 'dist',
+            output: '<%= cfg.paths.output %>',
             options: {
                 force: true
             }
         },
         copy: {
             css: {
-                src: 'src/jumbotron.css',
-                dest: 'dist/jumbotron.css'
+                src: '<%= cfg.paths.source %>/jumbotron.css',
+                dest: '<%= cfg.paths.output %>/jumbotron.css'
             }
         },
         concat: {
             polyfills: {
-                src: 'src/array.find.js',
-                dest: 'dist/polyfills.js'
+                src: '<%= cfg.paths.source %>/array.find.js',
+                dest: '<%= cfg.paths.output %>/polyfills.js'
             }
         },
         jade: {
@@ -37,13 +37,13 @@ module.exports = function (grunt) {
                 }
             },
             index: {
-                src: 'src/index.jade',
-                dest: 'dist/index.html'
+                src: '<%= cfg.paths.source %>/index.jade',
+                dest: '<%= cfg.paths.output %>/index.html'
             }
         },
         watch: {
             index: {
-                files: ['src/index.jade'],
+                files: ['<%= cfg.paths.source %>/index.jade'],
                 tasks: ['jade']
             }
         }
@@ -52,6 +52,7 @@ module.exports = function (grunt) {
     grunt.config.merge(appConfig);
 
     var appTasks = [
+        'inject-config',
         'clean',
         'copy',
         'concat',

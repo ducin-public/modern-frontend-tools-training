@@ -8,8 +8,8 @@ module.exports = function (grunt) {
                 port: 9000,
                 hostname: 'localhost',
                 base: [
-                    'dist',
-                    'bower_components'
+                    '<%= cfg.paths.output %>',
+                    '<%= cfg.paths.bower %>'
                 ]
             },
             server: {
@@ -26,7 +26,7 @@ module.exports = function (grunt) {
             },
             livereload: {
                 files: [
-                    'dist/**/*'
+                    '<%= cfg.paths.output %>/**/*'
                 ]
             }
         }
@@ -35,6 +35,7 @@ module.exports = function (grunt) {
     grunt.config.merge(serveConfig);
 
     var serveTasks = [
+        'app',
         'connect',
         'watch'
     ];
