@@ -4,7 +4,10 @@ module.exports = function(grunt) {
         connect: {
             options: {
                 port: 9002,
-                base: 'src'
+                base: [
+                    'src',
+                    'bower_components'
+                ]
             },
             server: {
                 options: {
