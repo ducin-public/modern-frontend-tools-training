@@ -9,6 +9,24 @@ module.exports = function (grunt) {
                 dest: 'src/polyfills.js'
             }
         },
+        jade: {
+            options: {
+                client: false,
+                pretty: true,
+                data: function () {
+                    return {
+                        version: grunt.config.get('pkg.version'),
+                        name: grunt.config.get('instanceConfig.name'),
+                        title: grunt.config.get('instanceConfig.title'),
+                        datetime: new Date().toLocaleString()
+                    };
+                }
+            },
+            index: {
+                src: 'src/index.jade',
+                dest: 'src/index.html'
+            }
+        },
         connect: {
             options: {
                 port: 9000,
@@ -36,8 +54,8 @@ module.exports = function (grunt) {
                 ]
             },
             'index': {
-                files: ['src/index.html'],
-                tasks: [] // nothing to do here
+                files: ['src/index.jade'],
+                tasks: ['jade']
             }
         }
     };
@@ -45,6 +63,7 @@ module.exports = function (grunt) {
     grunt.config.merge(serveConfig);
 
     var serveTasks = [
+        'jade',
         'connect',
         'watch'
     ];
