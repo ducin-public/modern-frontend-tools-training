@@ -3,10 +3,22 @@
 module.exports = function (grunt) {
 
     var serveConfig = {
+        clean: {
+            output: 'dist',
+            options: {
+                force: true
+            }
+        },
+        copy: {
+            css: {
+                src: 'src/jumbotron.css',
+                dest: 'dist/jumbotron.css'
+            }
+        },
         concat: {
             polyfills: {
                 src: 'src/array.find.js',
-                dest: 'src/polyfills.js'
+                dest: 'dist/polyfills.js'
             }
         },
         jade: {
@@ -16,6 +28,8 @@ module.exports = function (grunt) {
                 data: function () {
                     return {
                         version: grunt.config.get('pkg.version'),
+                        author: grunt.config.get('pkg.author'),
+                        description: grunt.config.get('pkg.description'),
                         name: grunt.config.get('instanceConfig.name'),
                         title: grunt.config.get('instanceConfig.title'),
                         datetime: new Date().toLocaleString()
@@ -24,7 +38,7 @@ module.exports = function (grunt) {
             },
             index: {
                 src: 'src/index.jade',
-                dest: 'src/index.html'
+                dest: 'dist/index.html'
             }
         },
         connect: {
@@ -32,7 +46,7 @@ module.exports = function (grunt) {
                 port: 9000,
                 hostname: 'localhost',
                 base: [
-                    'src',
+                    'dist',
                     'bower_components'
                 ]
             },
@@ -50,7 +64,7 @@ module.exports = function (grunt) {
             },
             livereload: {
                 files: [
-                    'src/**/*'
+                    'dist/**/*'
                 ]
             },
             'index': {
@@ -63,6 +77,9 @@ module.exports = function (grunt) {
     grunt.config.merge(serveConfig);
 
     var serveTasks = [
+        'clean',
+        'copy',
+        'concat',
         'jade',
         'connect',
         'watch'
